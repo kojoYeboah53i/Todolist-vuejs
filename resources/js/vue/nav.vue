@@ -5,11 +5,12 @@
     </nav>
 </template>
 
-<script>
-export default {
-    components:{
-        { nav },
-    }
-}
+<style scoped>
 
-</script>
+.nav{
+    position: relative;
+    left: 0;
+    top: 0;
+    background: white;
+}
+</style>

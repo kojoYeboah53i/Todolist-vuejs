@@ -1,5 +1,5 @@
 <template>
-  
+  <nav/>
   <h1 id="title"> Add Todo List</h1>
  
   <div class="todoListContainer">
@@ -13,10 +13,12 @@
 <script>
 import addItemForm from "./addItemForm";
 import listView from "./listView";
+import nav from "./nav";
 export default {
   components: {
     addItemForm,
     listView,
+    nav
   },
   data() {
     return {

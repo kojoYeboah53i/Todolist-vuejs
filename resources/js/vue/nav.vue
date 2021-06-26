@@ -6,8 +6,10 @@
 </template>
 
 <script>
-export default{
-    
+export default {
+    components:{
+        { nav },
+    }
 }
 
 </script>

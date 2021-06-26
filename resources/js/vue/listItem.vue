@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <p>
-      <input type="checkbox" @change="updateCheck()" v-model="item.completed" true-value="1" false-value="0"/>
+      <input id="checkbox" type="checkbox" @change="updateCheck()" v-model="item.completed" true-value="1" false-value="0"/>
       <span :class="[item.completed ? 'completed' : '', 'item-text']">
         {{ item.name }}
       </span>
@@ -17,8 +17,7 @@ export default {
   props: ["item"],
   methods: {
     updateCheck() {
-      axios
-        .put("api/item/" + this.item.id, {
+      axios.put("./api/item/" + this.item.id, {
           item: this.item,
         })
         .then((response) => {
@@ -31,8 +30,7 @@ export default {
         });
     },
     removeItem() {
-      axios
-        .delete("api/item/" + this.item.id)
+      axios.delete("./api/item/" + this.item.id)
         .then((response) => {
           if (response.status == 200) {
             this.$emit("itemchanged");
@@ -53,7 +51,7 @@ export default {
 }
 .itemText {
   width: 100%;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .item {
   display: flex;
@@ -61,11 +59,16 @@ export default {
   align-items: center;
 }
 .trashcan {
-  background: #e6e6e6;
+  background: #062723;
   border: none;
   color: #ff0000;
   outline: none;
   cursor: pointer;
+  font-size: 1.7rem;
+}
+ input#checkbox {
+   font-size: 1.7rem;
+   margin-right: 5px;
 }
 p {
   margin: 0;

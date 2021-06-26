@@ -1,75 +1,68 @@
 <template>
-  <div class="addItem">
-    <input type="text" v-model="item.name"/>
-    <font-awesome-icon icon="plus-square" @click="addItem()" :class="[item.name ? 'active' : 'inactive', 'plus']" />
+  
+  <h1 id="title"> Add Todo List</h1>
+ 
+  <div class="todoListContainer">
+    <div class="heading">
+      <add-item-form @reloadlist="getList()"/>
+    </div>
+    <list-view :items="items" @reloadlist="getList()"/>
   </div>
 </template>
 
 <script>
+import addItemForm from "./addItemForm";
+import listView from "./listView";
 export default {
+  components: {
+    addItemForm,
+    listView,
+  },
   data() {
     return {
-      item: {
-        name: "",
-      },
+      items: [],
     };
   },
   methods: {
-    addItem() {
-      if (this.item.name == "") {
-          console.log("noting entered")
-            this.item.name = "Please enter something";
-        return;
-      }
-      axios.post("./api/item/store", {
-          item: this.item,
-        })
+    getList() {
+      axios.get("./api/items")
         .then((response) => {
-          if (response.status = 201) {
-            this.item.name = "";
-          }
-          this.$emit("reloadlist")
+          this.items = response.data;
+          console.log("data returned")
         })
         .catch((error) => {
           console.log(error);
         });
     },
   },
+  created() {
+    this.getList();
+  },
 };
 </script>
 
 <style scoped>
-.addItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+.todoListContainer {
+  text-align: center;
+  width: 350px;
+  margin: auto;
+  position:relative;
+  top: 10px;
+  border-radius: 35px;
+  box-shadow: 0 2px 10px 1px rgba(44, 39, 39, 0.3);
 
+}
+.heading {
+  background: #e6e6e6;
+  padding: 10px;
+  border-radius: 35px  35px 0 0;
+  background: #062723;
   
-}
-input {
-  border: 0;
-  outline: none;
-  padding: 5px;
-  margin-right: 6px;
-  width: 90%;
-  min-height: 7vh;
-  border-radius: 5px;
-  font-size: 1.6rem;
-  border: none;
-  background: white;
-}
-.plus {
-    font-size:2rem ;
-    /* display:none; */
-}
 
-.active {
-  color: #00ce25;
-  cursor: pointer;
 }
-.inactive {
-  color: #999999;
+#title {
+  margin-top: 100px;
+  margin-bottom: 0;;
+  text-align: center;
 }
 </style>

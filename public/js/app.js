@@ -26486,8 +26486,9 @@ __webpack_require__.r(__webpack_exports__);
     getList: function getList() {
       var _this = this;
 
-      axios.get("api/item").then(function (response) {
+      axios.get("./api/items").then(function (response) {
         _this.items = response.data;
+        console.log("data returned");
       })["catch"](function (error) {
         console.log(error);
       });
@@ -26630,18 +26631,18 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-27d9b80a");
 
-var _hoisted_1 = {
-  "class": "todoListContainer"
-};
-var _hoisted_2 = {
-  "class": "heading"
-};
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", {
   id: "title"
-}, "Todo List", -1
+}, " Add Todo List", -1
 /* HOISTED */
 );
+
+var _hoisted_2 = {
+  "class": "todoListContainer"
+};
+var _hoisted_3 = {
+  "class": "heading"
+};
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -26650,7 +26651,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
   var _component_list_view = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("list-view");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_item_form, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_item_form, {
     onReloadlist: _cache[1] || (_cache[1] = function ($event) {
       return $options.getList();
     })
@@ -26661,7 +26662,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     })
   }, null, 8
   /* PROPS */
-  , ["items"])]);
+  , ["items"])])], 64
+  /* STABLE_FRAGMENT */
+  );
 });
 
 /***/ }),
@@ -26858,7 +26861,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.todoListContainer[data-v-27d9b80a] {\r\n  width: 350px;\r\n  margin: auto;\n}\n.heading[data-v-27d9b80a] {\r\n  background: #e6e6e6;\r\n  padding: 10px;\n}\n#title[data-v-27d9b80a] {\r\n  text-align: center;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.todoListContainer[data-v-27d9b80a] {\r\n  text-align: center;\r\n  width: 350px;\r\n  margin: auto;\r\n  position:relative;\r\n  top: 10px;\r\n  border-radius: 35px;\r\n  box-shadow: 0 2px 10px 1px rgba(44, 39, 39, 0.3);\n}\n.heading[data-v-27d9b80a] {\r\n  background: #e6e6e6;\r\n  padding: 10px;\r\n  border-radius: 35px  35px 0 0;\r\n  background: #062723;\n}\n#title[data-v-27d9b80a] {\r\n  margin-top: 100px;\r\n  margin-bottom: 0;;\r\n  text-align: center;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -1,68 +1,42 @@
-<template>
-  
-    <h1 id="title"> Add Todo List</h1>
-   
-    <div class="todoListContainer">
-      <div class="heading">
-        <add-item-form @reloadlist="getList()"/>
-      </div>
-      <list-view :items="items" @reloadlist="getList()"/>
-    </div>
-  </template>
-  
-  <script>
-  import addItemForm from "./addItemForm";
-  import listView from "./listView";
-  export default {
-    components: {
-      addItemForm,
-      listView,
-    },
-    data() {
-      return {
-        items: [],
-      };
-    },
-    methods: {
-      getList() {
-        axios.get("./api/items")
-          .then((response) => {
-            this.items = response.data;
-            console.log("data returned")
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      },
-    },
-    created() {
-      this.getList();
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .todoListContainer {
-    text-align: center;
-    width: 350px;
-    margin: auto;
-    position:relative;
-    top: 10px;
-    border-radius: 35px;
-    box-shadow: 0 2px 10px 1px rgba(44, 39, 39, 0.3);
-  
-  }
-  .heading {
-    background: #e6e6e6;
-    padding: 10px;
-    border-radius: 35px  35px 0 0;
-    background: #062723;
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{{ asset('favico/apple-touch-icon.png') }}" type="image/x-icon">
+        <title>Todo list App</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- Styles -->
     
-  
-  }
-  #title {
-    margin-top: 100px;
-    margin-bottom: 0;;
-    text-align: center;
-  }
-  </style>
+
+        <style>
+                 *{
+                     margin: 0;
+                    padding: 0;
+                     box-sizing: border-box;
+
+                     }
+
+            body{
+             background-image: linear-gradient(120deg, #7e9492, #13615c);
+              color: white;
+            /* font-family: "Poppins ", sans-serif; */
+            font-family: 'Nunito', sans-serif;
+
+            min-height: 100vh;
+            }
+        </style>
+    </head>
+    <body >
+        <div id="app">
+            <app></app>
+        </div>
+
+
+    </body>
+        <script src="{{ mix('js/app.js') }}"></script>
+
+</html>

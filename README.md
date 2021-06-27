@@ -1,5 +1,12 @@
+<div style="text-align:center">
+<img src="./screenshot.PNG" alt="screenshot" width="800" height="700"></div>
+
+
 ## todolist-vuejs-laravel
  A todolist app with vue.js frontend and laravel backend
+ 
+
+
 
 ## Installation
 Run composer install from your terminal (make sure composer is install on your local machine) <br>

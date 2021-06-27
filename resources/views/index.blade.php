@@ -19,7 +19,7 @@
                      box-sizing: border-box;
 
                      }
-
+                        
             body{
              background-image: linear-gradient(120deg, #7e9492, #13615c);
               color: white;
@@ -35,6 +35,9 @@
             <app></app>
         </div>
 
+            <div style="text-align:center">
+                <img src="./screenshot.png" alt="screenshot" width="500" height="700">
+            </div>
 
     </body>
         <script src="{{ mix('js/app.js') }}"></script>

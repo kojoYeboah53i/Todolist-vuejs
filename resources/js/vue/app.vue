@@ -30,7 +30,7 @@ export default {
       axios.get("./api/items")
         .then((response) => {
           this.items = response.data;
-          console.log("data returned")
+          console.log(response)
         })
         .catch((error) => {
           console.log(error);

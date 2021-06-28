@@ -8,7 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://github.com/kojoYeboah53i/voters-app/blob/main/src/bootstrap.css">
         <!-- Styles -->
     
 
@@ -36,7 +36,7 @@
         </div>
 
             <div style="text-align:center">
-                <img src="./screenshot.png" alt="screenshot" width="500" height="700">
+                {{-- <img src="./screenshot.png" alt="screenshot" width="500" height="700"> --}}
             </div>
 
     </body>

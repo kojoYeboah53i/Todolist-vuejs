@@ -17,9 +17,10 @@ class ItemController extends Controller
     {
         $result = Item::orderby('created_at', 'DESC')->get();
 
-        if(!$request){
-            
+        if(!$result){
+            return "can't access data";
         }
+        return $result;
     }
 
     /**
